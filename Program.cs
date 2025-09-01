@@ -23,9 +23,7 @@ class Program
       if (Global_SmallMode) // going to selector
       {
         SetWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
-        ClearWindowState(ConfigFlags.TopmostWindow
-                         | ConfigFlags.UndecoratedWindow
-                         );
+        ClearWindowState(ConfigFlags.UndecoratedWindow | ConfigFlags.TopmostWindow);
         WindowsHelper.SizeUpdate();
 
         int currentMonitor = GetCurrentMonitor();
@@ -40,9 +38,7 @@ class Program
       {
         Vector2 textSize = MeasureTextEx(Global_Font, Global_CurrentText, Global_Fontsize, 1);
         SetWindowSize(textSize.X <= 400 ? (int)textSize.X + Global_TextPadding*2 : 400, (int)textSize.Y + Global_TextPadding*2);
-        SetWindowState(ConfigFlags.TopmostWindow
-                       | ConfigFlags.UndecoratedWindow
-                       );
+        SetWindowState(ConfigFlags.UndecoratedWindow | ConfigFlags.TopmostWindow);
         WindowsHelper.SizeUpdate();
         
         int currentMonitor = GetCurrentMonitor();
@@ -85,7 +81,7 @@ class Program
   static void Update()
   {
     if ((IsKeyDown(KeyboardKey.LeftAlt) && IsKeyPressed(KeyboardKey.F4)) ||
-        (WindowsHelper.IsKeyPressedGlobal(WindowsHelper.VK_SHIFT) && WindowsHelper.IsKeyPressedGlobal(WindowsHelper.VK_ESCAPE)))
+        (WindowsHelper.IsKeyPressedGlobal(WindowsHelper.VK_ALT) && WindowsHelper.IsKeyPressedGlobal(WindowsHelper.VK_BACK)))
       Global_ShouldClose = true;
     if (!Global_SmallMode && IsKeyPressed(KeyboardKey.Escape))
       Global_SmallMode = true;

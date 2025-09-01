@@ -23,8 +23,8 @@ public static class WindowsHelper
   const int SWP_NOZORDER = 0x0004;
   const int SWP_FRAMECHANGED = 0x0020;
 
-  public const int VK_SHIFT  = 0x10;
-  public const int VK_ESCAPE = 0x1B;
+  public const int VK_ALT  = 0x12;
+  public const int VK_BACK = 0x08;
 
   private static MouseCursor hidden_latestCursor = MouseCursor.Default;
   public static MouseCursor LatestCursor
